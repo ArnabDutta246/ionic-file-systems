@@ -1,20 +1,31 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Pdf download
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <ion-item classs="ion-margin-bottom" lines="full">
+    <ion-icon name="document" slot="start"></ion-icon>
+    <ion-label class="ion-text-wrap">{{filePath}}</ion-label>
+  </ion-item>
+  <div class="ion-text-center" *ngIf="downloadProgress > 0">
+    <p>Downloading....{{downloadProgress}}%</p>
+    <ion-progress-bar [value]="downloadProgress / 100"></ion-progress-bar>
   </div>
+  <!-- <div *ngIf="appendAction" class="download_a_tag" id="download_a_tag">
+
+  </div> -->
+
+
+  <ion-button expand="full" (click)="downloadFile()">
+    Download from url
+  </ion-button>
+
+  <!-- <ion-button expand="full" download []>
+      Download from url
+    </ion-button> -->
+
 </ion-content>
