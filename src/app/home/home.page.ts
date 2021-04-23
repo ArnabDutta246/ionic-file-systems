@@ -20,7 +20,6 @@ export class HomePage {
   filePath:string = 'https://file-examples-com.github.io/uploads/2017/10/file-example_PDF_1MB.pdf';
   downloadProgress = 0;
 
-  appendAction:boolean = false;
   constructor(
    private fileOpener: FileOpener,
    private plt:Platform ,
@@ -95,7 +94,7 @@ export class HomePage {
   }
 
   downloadFile(){ 
-    this.appendAction = false;
+
     // let headers = new HttpHeaders();
     // headers = headers.set('Accept', 'application/pdf');
     this.http.get(this.filePath,{
@@ -201,12 +200,12 @@ export class HomePage {
     a.href = url;
     a.download = name;
     a.target="_blank";
-    a.rel="noopener noreferrer" 
+    a.rel="noopener noreferrer";
+    document.body.appendChild(a); 
     // start download
     a.click();
-    //const currentDiv = document.getElementById("download_a_tag").appendChild(a);
-    //document.body.insertBefore(a, currentDiv);
-   // this.appendAction = true;
+    document.body.removeChild(a);
+
 
     console.log(a);
   }
