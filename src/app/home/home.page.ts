@@ -87,16 +87,13 @@ export class HomePage {
   getType(name){
     if(name.indexOf('pdf') >= 0){
       return 'application/pdf';
-    }
-    // else if(name.indexOf('csv') >= 0){
-    //   return 
-    // }
+    }else if(name.indexOf('csv') >= 0){
+      return 'text/csv';
+   }
   }
 
   downloadFile(){ 
 
-    // let headers = new HttpHeaders();
-    // headers = headers.set('Accept', 'application/pdf');
     this.http.get(this.filePath,{
       // headers:headers,
       responseType:'blob',
@@ -196,16 +193,15 @@ export class HomePage {
     // FileSaver.saveAs(blob, name);
 
     // append a <a> tag for download
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = name;
+    var a = window.document.createElement("a");
+    a.href = window.URL.createObjectURL(blob);
     a.target="_blank";
     a.rel="noopener noreferrer";
-    document.body.appendChild(a); 
+    a.download = name;
+    document.body.appendChild(a);
     // start download
     a.click();
     document.body.removeChild(a);
-
 
     console.log(a);
   }

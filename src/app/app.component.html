@@ -1,3 +1,25 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main">
+    <!--  the side menu  -->
+    <ion-menu contentId="main" side="start">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>File Explorer</ion-title>
+        </ion-toolbar>
+      </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+              <ion-item routerDirection="forward" [routerLink]="[selectedIndex==i ? p.tab : p.url]" lines="none" detail="false">
+                <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'">
+                </ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle> 
+          </ion-list>
+        </ion-content>     
+      </ion-menu>
+      <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
+
 </ion-app>

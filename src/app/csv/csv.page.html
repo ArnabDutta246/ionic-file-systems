@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Csv file create and download</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-grid>
+  <div *ngFor="let data of demoObject" class="ion-padding">
+  <ion-row>
+    <ion-col>
+      <div>
+       {{data.Date}}
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+      {{data.Email}}
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        {{data.Amount}}
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        {{data.Country}}
+      </div>
+    </ion-col>
+  </ion-row>
+  </div>
+</ion-grid>
+<ion-button expand="full" (click)="convertObjectToCsv(demoObject)">
+  Download as csv
+</ion-button>
+</ion-content>
