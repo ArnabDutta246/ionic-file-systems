@@ -10,7 +10,7 @@
         <ion-content>
           <ion-list>
             <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-              <ion-item routerDirection="forward" [routerLink]="[selectedIndex==i ? p.tab : p.url]" lines="none" detail="false">
+              <ion-item routerDirection="forward" [routerLink]="'/tabs/'+p.tab" lines="none" detail="false">
                 <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'">
                 </ion-icon>
                 <ion-label>{{ p.title }}</ion-label>

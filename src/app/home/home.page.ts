@@ -153,7 +153,7 @@ export class HomePage {
       // get the uri and open the file in device
       const path = savedResult.uri;
       const mimeType = this.getType(name);
-      
+      console.log("saved uri:",savedResult.uri);
       // open in default file reader apps
       this.open(path,mimeType);
       // Storage set for imediate query

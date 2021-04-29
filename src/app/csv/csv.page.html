@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-item>
+    <ion-label>Plugin: {{plugin}}</ion-label>
+    <ion-toggle mode="ios" (ionChange)="changePlugin($event)"></ion-toggle>
+  </ion-item>
 <ion-grid>
   <div *ngFor="let data of demoObject" class="ion-padding">
   <ion-row>
@@ -32,7 +35,10 @@
   </ion-row>
   </div>
 </ion-grid>
-<ion-button expand="full" (click)="convertObjectToCsv(demoObject)">
-  Download as csv
+<ion-button expand="full" (click)="convertObjectToCsv(demoObject)" [disabled]="plugin !== 'capacitor'">
+  Download as csv [capacitor]
+</ion-button>
+<ion-button expand="full" (click)="convertObjectToCsv(demoObject)" [disabled]="plugin !== 'cordova'">
+  Download as csv [native]
 </ion-button>
 </ion-content>

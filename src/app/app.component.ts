@@ -12,7 +12,7 @@ export const appPages = [
    title: 'CSV maker',
    url: 'csv-explore',
    icon: 'clipboard',
-   tab: 'CSV-explore',
+   tab: 'csv-explore',
   },
 ] 
 @Component({
